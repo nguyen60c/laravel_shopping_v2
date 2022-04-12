@@ -20,7 +20,7 @@ Route::group(["namespace" => "App\Http\Controllers"], function () {
      */
     Route::get("/", "HomeController@index")->name("home.index");
 
-    Route::group(["middleware" => ["auth"]], function () {
+    Route::group(["middleware" => ["guest"]], function () {
         /*
          * Register Routes
          */
@@ -38,6 +38,9 @@ Route::group(["namespace" => "App\Http\Controllers"], function () {
     /*
      * Logout Routes
      */
+
+
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
 });
+
